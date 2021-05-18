@@ -368,7 +368,7 @@ APOCALYPSE heard us dissing on their RSA encryption script and decided to update
 
 
 ## Solution
-My solution was exactly the same as the previous one. I obtained the modulus and exponent from the PEM cert attached, and ran the script I wrote for Welp 1.0 to recover the flag for this challenge. So if you are unsure of how the math works in this challenge, I provided a rather detailed writeup explaining the math in [my writeup for Welp 1.0](https://github.com/arul00/CTF-Stuff/tree/main/Cyberthon%20Writeups/Finals/Welp%201.0)
+My solution was exactly the same as the previous one. I obtained the modulus and exponent from the PEM cert attached, and ran the script I wrote for Welp 1.0 to recover the flag for this challenge. So if you are unsure of how the math works in this challenge, I provided a rather detailed writeup explaining the math in [my writeup for Welp 1.0](/Cyberthon-2021.html#welp-10)
 
 My script:
 ```python
