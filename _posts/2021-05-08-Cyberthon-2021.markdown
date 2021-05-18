@@ -5,8 +5,7 @@
 
 
 Congratulations to everyone who participated for making it thus far, I'm sure the CTF was fun for most of y'all. 
-This was not my best performance in a CTF, since it was only a 7 hour CTF. However, I have still learnt a great deal from this experience, having learnt many new tips and tricks from the training challenges and during the actual CTF itself.
-
+This might've been a pretty short CTF (only 7 hours!), but I can say it'll be a memorable one, having learnt a lot from this experience. Being only my 2nd CTF, I did struggle with a lot of challenges, but meh. See y'all in the next CTF!!
 
 ![image](https://user-images.githubusercontent.com/22212091/117558526-df2e0580-b0b0-11eb-8ac0-de0d6f83acc9.png)
 
