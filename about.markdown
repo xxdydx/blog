@@ -12,8 +12,10 @@ I am also an amateur CTF player who is learning the ropes.
 
 Hit me up at <a href = mailto:official@arul.me>official(at)arul(dot)me</a> for a chat or anything.
 
+# History
+
 ```bash
-1337 Codegate Junior CTF Finals    (2018)[Lord_Idiot]   - 17th
-1338 Defcamp CTF Finals            (2018)[HATS SG]      - 12th
-1339 Codegate Junior CTF Finals    (2019)[Lord_Idiot]   - 2nd
+Lag 'N' Crash Interpoly CTF        (2021)[Elmo]         - 1st
+Cyberthon CTF                      (2021)[RI Elmo]      - 12th
+Angstrom CTF                       (2021)[xxdydx]       - Top 30%
 ```
