@@ -13,6 +13,7 @@ body {
     font-family: $font-stack-one;
     height: 100%;
     overflow: auto;
+    background: $bg-color;
 }
 .site-name {
     color: $accent-color;
