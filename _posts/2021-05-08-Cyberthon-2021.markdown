@@ -12,3 +12,39 @@ This was not my best performance in a CTF, since it was only a 7 hour CTF. Howev
 
 
 # Writeups
+## Byte Rotator
+---
+### Description
+I've encrypted the flag and given it to you. All you have to do is decrypt it!
+
+[Byte Rotator.zip](https://github.com/arul00/CTF-Stuff/files/6359200/Byte.Rotator.zip)
+
+----
+### Solution
+The flag is in a JPEG format, so I always make it a habit to use the Hex Editor, whenever a JPEG file is provided. I was lazy to turn on my Kali while doing this challenge, so I used an online hex editor instead.
+
+<img width="533" alt="Screenshot 2021-04-22 224302" src="https://user-images.githubusercontent.com/22212091/115734237-1ebfd680-a3bc-11eb-983b-c7c1c15ce4fe.png">
+
+First up, we can see that the file signature (magic number) of this encrypted file is not quite right. A JPEG file should have a header starting with the bytes ``` FF D8 FF ```. However, this file doesn't feature those bytes.
+
+From the challenge title and description, I inferred that there might be some sort of shift cipher involved (like Caesar), so I decided to test my hypothesis.
+
+I decided to find the offset for this cipher. In a standard JPEG, the first byte should be ```FF```(255), but the encrypted file starts with ```2B```(43), meaning that the offset should be 44. 
+
+I then wrote a script to get our original JPEG file.
+```python
+from Crypto.Util.number import long_to_bytes, bytes_to_long
+
+with open('flag.jpg.encrypted', 'rb') as f:
+    data = f.read()
+
+for key in range (256):
+    d = bytes([(byte - 44) % 256 for byte in data])
+    with open('flag.jpg', 'wb') as f:
+        f.write(d)
+```
+And to my delight, I have a JPEG file containing the flag waiting in my folder.
+
+![flag](https://user-images.githubusercontent.com/22212091/115734298-2c755c00-a3bc-11eb-9426-c73967c4a333.jpg)
+
+```CTFSG{b1gg3r_sh1ft5_m0r3_s3cur3}```
