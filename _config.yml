@@ -6,7 +6,7 @@ baseurl: "/blog"
 
 # This will show up at the top of index page
 site_heading: >
-    Arul <span class="faded">'s Blog</span>
+    arul's blog
 
 email: official@arul.me
 author: Arul Kumaran
