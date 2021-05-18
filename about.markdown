@@ -1,7 +1,7 @@
 ---
 layout: about
-title: accent
-author: Ankit Sultana
+title: About Me
+author: Arul Kumaran
 permalink: /about
 ---
 Hello! I am Arul, a student from Singapore. 
