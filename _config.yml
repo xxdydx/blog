@@ -1,22 +1,22 @@
 # User Settings | Edit there as per required
 
-title: accent
-url: "http://ankitsultana.com"
-baseurl: "/accent"
+title: Arul's Blog
+url: "http://arul.me"
+baseurl: ""
 
 # This will show up at the top of index page
 site_heading: >
-    foo <span class="faded">'s blog</span>
+    Arul <span class="faded">'s Blog</span>
 
-email: your@email.com
-author: yourname
+email: official@arul.me
+author: Arul Kumaran
 # This description will show up in google search results
 # (for index page) etc.
 description: >
-    accent is, as Trump would put it, the best
+    Blog posts, writeups and guides written by Arul
 
 # This will what will show against &copy; in the footer
-copyright: accent
+copyright: Arul
 # Toggle your short bio, which will displayed on your index page
 # Just toggle it and run jekyll again to see
 intro: false         # Tip: Remove the span from site_heading if intro is set to true
