@@ -1,9 +1,14 @@
 *Team name: RI Elmo*
+
+
 *Position: #12 out of ~80 teams*
+
 
 Congratulations to everyone who participated for making it thus far, I'm sure the CTF was fun for most of y'all. 
 This was not my best performance in a CTF, since it was only a 7 hour CTF. However, I have still learnt a great deal from this experience, having learnt many new tips and tricks from the training challenges and during the actual CTF itself.
 
+
 ![image](https://user-images.githubusercontent.com/22212091/117558526-df2e0580-b0b0-11eb-8ac0-de0d6f83acc9.png)
+
 
 # Writeups
