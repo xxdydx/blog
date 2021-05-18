@@ -2,7 +2,7 @@
 
 title: Arul's Blog
 url: "https://arul.me"
-baseurl: "https://arul.me/blog"
+baseurl: "/blog"
 
 # This will show up at the top of index page
 site_heading: >
