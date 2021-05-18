@@ -1,7 +1,7 @@
-*Team name: RI Elmo*
+## *Team name: RI Elmo*
 
 
-*Position: #12 out of ~100 teams*
+## *Position: #12 out of ~100 teams*
 
 
 Congratulations to everyone who participated for making it thus far, I'm sure the CTF was fun for most of y'all. 
