@@ -50,6 +50,8 @@ And to my delight, I have a JPEG file containing the flag waiting in my folder.
 ```CTFSG{b1gg3r_sh1ft5_m0r3_s3cur3}```
 
 
+
+
 ## Hashcryption
 ---
 ### Description 
@@ -179,6 +181,8 @@ print (flag)
 And there we have the flag ```CTFSG{wr0ng_m0d3_m1ght_45_w3ll_d0nt_3ncrypt}```.
 
 
+
+
 ## Never Gonna Give
 ---
 ### Description
@@ -217,6 +221,8 @@ And there, we have the flag.
 ```CTFSG{m4yb3_d0nt_r33us3_k3y5_0k}```
 
 
+
+
 ## Really Secure Algorithm
 ---
 ### Description
@@ -250,6 +256,8 @@ m = gmpy2.powmod (c, d, n)
 print(long_to_bytes(m))
 ```
 And voilà, the flag ```CTFSG{r54_15_45ymm3tr1c_3ncrypt10n}```.
+
+
 
 
 ## XorMillion
@@ -306,6 +314,8 @@ for k in keyList:
 Here is the flag: ```CTFSG{w0w_th4t_w45_4ctu4lly_r34lly_u53l355}```.
 
 
+
+
 ## Welp 1.0
 ---
 ### Description
@@ -355,6 +365,8 @@ for k in range(0, 100000):
 
 ```
 ```FLAG: Cyberthon{w3lp_th15_15_4b50lut3ly_n0t_h0w_y0u_5h0uld_r5444}```
+
+
 
 
 # Welp 2.0
