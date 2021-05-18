@@ -17,7 +17,7 @@ This was not my best performance in a CTF, since it was only a 7 hour CTF. Howev
 ### Description
 I've encrypted the flag and given it to you. All you have to do is decrypt it!
 
-[Byte Rotator.zip](https://github.com/arul00/CTF-Stuff/files/6359200/Byte.Rotator.zip)
+[Byte Rotator.zip](https://github.com/xxdydx/CTF-Stuff/files/6359200/Byte.Rotator.zip)
 
 ----
 ### Solution
@@ -55,7 +55,7 @@ And to my delight, I have a JPEG file containing the flag waiting in my folder.
 ### Description 
 AES ECB mode isn't very secure. But surely when I combine it with hashing it's going to be secure right? I'm so confident that I've even deployed a network service that allows you to do your own encryption using this technique!
 
-[Hashcryption.zip](https://github.com/arul00/CTF-Stuff/files/6357393/Hashcryption.zip)
+[Hashcryption.zip](https://github.com/xxdydx/CTF-Stuff/files/6357393/Hashcryption.zip)
 
 ---
 
@@ -184,7 +184,7 @@ And there we have the flag ```CTFSG{wr0ng_m0d3_m1ght_45_w3ll_d0nt_3ncrypt}```.
 ### Description
 Steve and Dave use a One Time Pad to encrypt their conversations. Steve likes to talk about Rick Astley songs, Dave...likes to talk about flags.
 
-[Never Gonna Give.zip](https://github.com/arul00/CTF-Stuff/files/6365935/Never.Gonna.Give.zip)
+[Never Gonna Give.zip](https://github.com/xxdydx/CTF-Stuff/files/6365935/Never.Gonna.Give.zip)
 
 ---
 ### Solution
@@ -222,7 +222,7 @@ And there, we have the flag.
 ### Description
 What happens when you've got a flag encrypted with RSA but you've got no private key, only the public key and the two primes? Is it even possible to decrypt the flag??
 
-[Really Secure Algorithm.zip](https://github.com/arul00/CTF-Stuff/files/6357512/Really.Secure.Algorithm.zip)
+[Really Secure Algorithm.zip](https://github.com/xxdydx/CTF-Stuff/files/6357512/Really.Secure.Algorithm.zip)
 
 ---
 ### Solution
@@ -257,7 +257,7 @@ And voilà, the flag ```CTFSG{r54_15_45ymm3tr1c_3ncrypt10n}```.
 ### Description
 I've encrypted the flag and given it to you. This time i've used a stronger encryption! My key is now longer, and i've XOR-ed the thing a million times. SURELY this must be hard to decrypt.
 
-[XorMillion.zip](https://github.com/arul00/CTF-Stuff/files/6365767/XorMillion.zip)
+[XorMillion.zip](https://github.com/xxdydx/CTF-Stuff/files/6365767/XorMillion.zip)
 
 ---
 ### Solution
@@ -313,7 +313,7 @@ APOCALYPSE has recently started to encrypt all their files with RSA. But the mom
 
 <em>981 Points, 9 Solves</em>
 
-[Welp 1.0.zip](https://github.com/arul00/CTF-Stuff/files/6446838/Welp.1.0.zip)
+[Welp 1.0.zip](https://github.com/xxdydx/CTF-Stuff/files/6446838/Welp.1.0.zip)
 
 
 ---
@@ -364,7 +364,7 @@ APOCALYPSE heard us dissing on their RSA encryption script and decided to update
 
 <em>989 Points, 5 solves</em>
 
-[Welp 2.0.zip](https://github.com/arul00/CTF-Stuff/files/6446839/Welp.2.0.zip)
+[Welp 2.0.zip](https://github.com/xxdydx/CTF-Stuff/files/6446839/Welp.2.0.zip)
 
 
 ---
