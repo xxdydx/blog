@@ -3,8 +3,8 @@
     {% include suggestion.html %}
     {% if page.url == "/about" or paginator.total_pages == 1 or page.url == "/404" %}
         <div class="container" style="text-align: center; margin-bottom: 20px">
-            <a target="_blank" class="button" href="https://twitter.com/{{ site.twitter_username }}">
-                Follow me on twitter
+            <a target="_blank" class="button" href="https://github.com/xxdydx">
+                Follow me on GitHub
             </a>
         </div>
     {% endif %}
@@ -18,15 +18,15 @@
             {% endif %}
         </div>
         <div class="alignable pull-right">
-            <a target="_blank" href="https://twitter.com/{{ site.twitter_username }}" class="button">
-                @{{ site.twitter_username }}
-            </a>
-            <a href="mailto:{{ site.email }}" class="button">
+            <i class="fa fa-github"><a target="_blank" href="https://github.com/xxdydx" class="button">
+                @xxdydx
+            </a></i>
+            <i class="fas fa-envelope-square"><a href="mailto:{{ site.email }}" class="button">
                 mail
-            </a>
-            <a target="_blank" href="{{ site.url }}{{ site.baseurl }}/feed.xml" class="button">
+                </a></i>
+            <i class="fas fa-rss"><a target="_blank" href="{{ site.url }}{{ site.baseurl }}/feed.xml" class="button">
                 rss
-            </a>
+                </a></i>
         </div>
     </div>
     <div style="clear:both"></div>
