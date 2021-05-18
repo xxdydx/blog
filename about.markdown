@@ -10,7 +10,7 @@ I love eating, sleeping and tinkering with computers.
 
 I am also an amateur CTF player who is learning the ropes. 
 
-Hit me up at <a href = mailto:official@arul.me>official(at)arul(dot)me</a> for a chat or anything.
+Hit me up at [official(at)arul(dot)me](mailto:official@arul.me) for a chat or anything.
 
 # History
 
