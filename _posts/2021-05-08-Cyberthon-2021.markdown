@@ -12,13 +12,11 @@ This might've been a pretty short CTF (only 7 hours!), but I can say it'll be a 
 
 # Writeups
 ## Byte Rotator
----
 ### Description
 I've encrypted the flag and given it to you. All you have to do is decrypt it!
 
 [Byte Rotator.zip](https://github.com/xxdydx/CTF-Stuff/files/6359200/Byte.Rotator.zip)
 
-----
 ### Solution
 The flag is in a JPEG format, so I always make it a habit to use the Hex Editor, whenever a JPEG file is provided. I was lazy to turn on my Kali while doing this challenge, so I used an online hex editor instead.
 
@@ -50,13 +48,13 @@ And here's the flag: ```CTFSG{b1gg3r_sh1ft5_m0r3_s3cur3}```.
 
 
 ## Hashcryption
----
+
 ### Description 
 AES ECB mode isn't very secure. But surely when I combine it with hashing it's going to be secure right? I'm so confident that I've even deployed a network service that allows you to do your own encryption using this technique!
 
 [Hashcryption.zip](https://github.com/xxdydx/CTF-Stuff/files/6357393/Hashcryption.zip)
 
----
+
 
 ### Solution
 Playing with the online encryption service, I found out that the same input would always give the same output. And with the hashing, each character will correspond to one block. So it's actually pretty easy to reverse the blocks in the encrypted file.
@@ -179,13 +177,14 @@ And there we have the flag ```CTFSG{wr0ng_m0d3_m1ght_45_w3ll_d0nt_3ncrypt}```.
 
 
 ## Never Gonna Give
----
+
+
 ### Description
 Steve and Dave use a One Time Pad to encrypt their conversations. Steve likes to talk about Rick Astley songs, Dave...likes to talk about flags.
 
 [Never Gonna Give.zip](https://github.com/xxdydx/CTF-Stuff/files/6365935/Never.Gonna.Give.zip)
 
----
+
 ### Solution
 I did not really have much experience with One Time Pads, so I went to Google about what it is and how we can break it. And then I found out about this method called [Crib Dragging](https://samwho.dev/blog/toying-with-cryptography-crib-dragging/). Apparently it can break two ciphertexts if they are using the same OTP key and if we know certain parts of the actual message. Since we know the first part of the flag ('CTFSG'), I thought we can try this out.
 
@@ -217,13 +216,14 @@ Flag: ```CTFSG{m4yb3_d0nt_r33us3_k3y5_0k}```.
 
 
 ## Really Secure Algorithm
----
+
+
 ### Description
 What happens when you've got a flag encrypted with RSA but you've got no private key, only the public key and the two primes? Is it even possible to decrypt the flag??
 
 [Really Secure Algorithm.zip](https://github.com/xxdydx/CTF-Stuff/files/6357512/Really.Secure.Algorithm.zip)
 
----
+
 ### Solution
 It's RSA, you know the drill. 
 
@@ -252,13 +252,13 @@ And voilà, the flag ```CTFSG{r54_15_45ymm3tr1c_3ncrypt10n}```.
 
 
 ## XorMillion
----
+
 ### Description
 I've encrypted the flag and given it to you. This time i've used a stronger encryption! My key is now longer, and i've XOR-ed the thing a million times. SURELY this must be hard to decrypt.
 
 [XorMillion.zip](https://github.com/xxdydx/CTF-Stuff/files/6365767/XorMillion.zip)
 
----
+
 ### Solution
 I had came across a similar challenge in Angstrom CTF 2021. From encrypt.py, we know that the key length is 5, which is the same length as the first part of the flag ('CTFSG'). Hence, we can use the properties of XOR ```(A^A=0)```.
 
@@ -306,7 +306,7 @@ Here is the flag: ```CTFSG{w0w_th4t_w45_4ctu4lly_r34lly_u53l355}```.
 
 
 ## Welp 1.0
----
+
 ### Description
 APOCALYPSE has recently started to encrypt all their files with RSA. But the moment we saw their implementation, all we can say is welp. Let's see if you can manage to decrypt a flag that has been encrypted with their script.
 
@@ -315,7 +315,7 @@ APOCALYPSE has recently started to encrypt all their files with RSA. But the mom
 [Welp 1.0.zip](https://github.com/xxdydx/CTF-Stuff/files/6446838/Welp.1.0.zip)
 
 
----
+
 ### Solution
 So this is not like usual RSA challenges I have encountered, instead of being provided ```n,e and c``` in decimal format, a PEM format certficate was provided instead.
 
@@ -357,7 +357,7 @@ for k in range(0, 100000):
 
 
 # Welp 2.0
----
+
 ## Description
 APOCALYPSE heard us dissing on their RSA encryption script and decided to update it. But the moment we saw their updated implementation, we all collectively went welp once again. Let's see if you can manage to decrypt a flag that has been encrypted with their updated script.
 
@@ -366,7 +366,7 @@ APOCALYPSE heard us dissing on their RSA encryption script and decided to update
 [Welp 2.0.zip](https://github.com/xxdydx/CTF-Stuff/files/6446839/Welp.2.0.zip)
 
 
----
+
 ## Solution
 My solution was exactly the same as the previous one. I obtained the modulus and exponent from the PEM cert attached, and ran the script I wrote for Welp 1.0 to recover the flag for this challenge. So if you are unsure of how the math works in this challenge, I provided a rather detailed writeup explaining the math in [my writeup for Welp 1.0](https://github.com/arul00/CTF-Stuff/tree/main/Cyberthon%20Writeups/Finals/Welp%201.0)
 
