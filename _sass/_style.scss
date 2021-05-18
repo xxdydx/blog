@@ -36,7 +36,7 @@ body {
 * * * * * * * * * * * */
 #intro {
     color: darken($accent-color, 40);
-    font-weight: ligher;
+    font-weight: lighter;
     text-align: center;
     font-size: 20px;
     margin-bottom: 20px;
@@ -59,7 +59,7 @@ body {
         margin: $base-spacing 0;
         margin-bottom: $base-spacing/1.1;
         font-size: 40px;
-        font-family: 'ubuntu';
+        font-family: 'Inter';
         @media (max-width: $break-small) {
             font-size: 32px;
         }
@@ -250,7 +250,7 @@ footer {
 * * * * * * * * * * * */
 
 .post-date {
-    font-family: 'Montserrat';
+    font-family: 'Inter';
     font-weight: lighter;
 }
 
