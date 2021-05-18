@@ -47,7 +47,7 @@ And to my delight, I have a JPEG file containing the flag waiting in my folder.
 
 ![flag](https://user-images.githubusercontent.com/22212091/115734298-2c755c00-a3bc-11eb-9426-c73967c4a333.jpg)
 
-```CTFSG{b1gg3r_sh1ft5_m0r3_s3cur3}```
+```CTFSG{b1gg3r_sh1ft5_m0r3_s3cur3}```.
 
 
 ## Hashcryption
@@ -214,7 +214,7 @@ And there, we have the flag.
 <br>
 <img width="275" alt="Screenshot 2021-04-23 221055" src="https://user-images.githubusercontent.com/22212091/115884580-a58ab700-a481-11eb-83d9-ec5360d935af.png">
 <br>
-```CTFSG{m4yb3_d0nt_r33us3_k3y5_0k}```
+```CTFSG{m4yb3_d0nt_r33us3_k3y5_0k}```.
 
 
 ## Really Secure Algorithm
