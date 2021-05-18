@@ -48,3 +48,343 @@ And to my delight, I have a JPEG file containing the flag waiting in my folder.
 ![flag](https://user-images.githubusercontent.com/22212091/115734298-2c755c00-a3bc-11eb-9426-c73967c4a333.jpg)
 
 ```CTFSG{b1gg3r_sh1ft5_m0r3_s3cur3}```
+
+
+## Hashcryption
+---
+### Description 
+AES ECB mode isn't very secure. But surely when I combine it with hashing it's going to be secure right? I'm so confident that I've even deployed a network service that allows you to do your own encryption using this technique!
+
+[Hashcryption.zip](https://github.com/arul00/CTF-Stuff/files/6357393/Hashcryption.zip)
+
+---
+
+### Solution
+Playing with the online encryption service, I found out that the same input would always give the same output. And with the hashing, each character will correspond to one block. So it's actually pretty easy to reverse the blocks in the encrypted file.
+
+First, I wrote a script to connect to the server, get the 'encrypted' output for standard characters like alphabets, numbers and certain symbols. So we can obtain a dictionary that will match the encrypted output to its respective character.
+
+```python
+f = open("dict.txt", 'w')
+for b in ascii_uppercase: # also digits and ascii_lowercase and symbols
+    p = remote('3qo9k5hk5cprtqvnlkvotlnj9d14b7mt.ctf.sg', 10101)
+    input = b
+    log.info("Input: " + input)
+    log.info("Sending " + str(len(input)) + " characters of data...")
+    p.send(input)
+    p.shutdown()
+    p.recvuntil('START -------------------------------')
+    
+    leak = p.recvuntil('------------------------------ END', drop=True).strip(b"\n")
+    log.info(b + " : " + str(leak) + "\n")
+
+ 
+    f.write('"' + b +'"'+ " : " +str(leak)+ ",\n")
+    
+f.close
+
+   ```
+
+So now we have a dictionary of characters and their encrypted outputs. It's pretty comprehensive, I know...
+
+```python
+dict1 = {
+"a" : b'\xdc\xc0Z\x81V\xcbO\xccb\n\x12?>\x0c\xed\xfe',
+"b" : b'\xe3\x0f^$}!\xc0\xb4\xea\xe9%\xb2\x03wT\xc2',
+"c" : b'Ee\x87\x88;f7\x05Z(\x86\x86\xac3\xb39',
+"d" : b']\xf4\x92\xea9\xc1%:]\xbf\xb6\x86\xcf}^E',
+"e" : b'd\xfb\xf3\x88\xecw\xd2z\x01\x1c\xf3\x88\xb4\xd8\x19\xe7',
+"f" : b'J0\x19Q\x9e I-\xd9v\x87\xda\xb1A\xeb\x81',
+"g" : b'\x13\x90\xc6\x8d{\x1e\xf2\xd1\x9a\xceQ\xbdx\t=\x05',
+"h" : b'\xd1\xad_,\xae\xf2+Yz\xbc\xd4<\x82\x913\xb5',
+"i" : b'\xdd\xc6\xbdcDq\x91\x14\r\x81\xd8\xa1\x93\x19\xa18',
+"j" : b'\xef0_\t\x16\xe4\xc2\xc0\xf1\xf7(n+\xe4\x9e\x0c',
+"k" : b'\xbf!\xf2\xb1;\xa7\\\xa7B\x1c\xbe%Z\xc5\xc1U',
+"l" : b'd\xec\x00k\xf4\xe2\xfb\tH_"\x0eQDu~',
+"m" : b'\xb8ZB\xc2(\xba\x8bh\xb0\xfe\t\x94\xe6\xe1\xa4\xf5',
+"n" : b'\xe2k\xf7\xf5\xf5\xf8N\xa6;)0Ob9k\xf0',
+"o" : b'\xa4S\xac\x8a;\xfer\xd2G\x99\x15\xc4\xab\x00?\x10',
+"p" : b'5\xef\xf7\x8f\xf41V0\xd0\xc4\xe2"o\xe8\xd7\xab',
+"q" : b'"\xb3\xbe\x9a\xdc\x9c\xbb\xfaTf\xac`N<\xbf\xc3',
+"r" : b'o\xd3\xa2\x8at\xf0\xbaA\xcaL\xa3\x1cc\x89\xa8f',
+"s" : b'\xe3\x0eq\xe2&\xd0P\x96\xe0\xefU,\x9fE\xb5"',
+"t" : b']1\xfb\x96\x8b?#\x9e\xc6\xdb5\xa9\n!\x14\x04',
+"u" : b'\xa3%\xc6\x8a}\xc8\xec\xd1\x88\x1b?\x8e\xaaJ\xb9Y',
+"v" : b'ei$x\x0e[\xa6\x90\xc2\xe6\xab\xf9\x0cP\xd0\xee',
+"w" : b'\x05=M\xe0?\xe1\x89\xcaP\x1d\x86,_\n\xeaM',
+"x" : b'\xed\xccm\xa7\x8a\x1a\x1f\xc7\x0e)\x89\xe9zx\xbc\x13',
+"y" : b'\xec\xd5h\x16\x83\xbb\x12\xb4E\xf4\xdc}18\xe2\xac',
+"z" : b'\xd6;Zv\xb6o\xdf\xaf\x8c\xa4\xdb\xd1\xe52\xf6x',
+"0" : b'*\x9c\xcf\x97<\x10&\xa7\x0fu6\x06\xf5\x18\xf4j',
+"1" : b'\xbbW7\x1a\x90S\xf0\x88u\xc1\xc7\x1ay\x059\xc8',
+"2" : b'\x10\xebb\xedI\xe5\x0e\xd0!6\xab@\x03\t\x95\x13',
+"3" : b'\x02\xc6\xc3\xc1R,\xa4<{\xdf\x9b\xb9\x8b\x89>\x01',
+"4" : b'QYn\xc5\xda`B\xc6k\xf6@\x8an\x90\x8a\x8b',
+"5" : b'K\xafo\x87\xa6\xdbJ\xfa\x83\x95\x973\xe6\xf2jH',
+"6" : b'm4\xd0\x0be\x0f\x8e\xac\x7fV\x84-\xd49Kp',
+"7" : b'F\xa2\xcdLr\xca\x08\x1b\xae\x0c\xbc\xf0o\xf6\xde\x1e',
+"8" : b'\x19\xef\x14\xca\x9f\xf2\xb1\xcb"7KT\xe3\xa3+:',
+"9" : b'\x05\x1c\x8e\xb7\xad\xd7\xacY_\xf4>\x94\x08\xf88\x0e',
+"A" : b'\xb4\x1dL\x03w\xfdw\xcc\x14\x08\x0e\x84\xfc\x9e\xd5\xdc',
+"B" : b'\r\x8bCJG\x00\n{\x07\xd2\xee\x9f0\xb4\xdfb',
+"C" : b'j\xc5j\x1a8\xed`!\xcb&\xb0\x9a(\x9d\xe2\xa4',
+"D" : b"\x16mH1m.\xd8\xc0\xdcU\xc8\xd3\x19Y'\xdd",
+"E" : b'\xac\x81\x14\x90u\x14\xca tpM#\xa2\xbc\x98\xc9',
+"F" : b"\xc8.\x04\xac\\E'\xbe\x04uE\xdf\xfdIG\xab",
+"G" : b'7\xd8\x1b\x81\xe2\xcb\xc9\xb9\xdf\x00\xfb\x10\xb06Tx',
+"H" : b"\x8c\x86Rs.|\xc7\x9dH\xdc'\x04/\x84\xa8\xf9",
+"I" : b'g\x1e\xcfz\xcc,\xe5Y\x8e\x88\xbf\xa3U\x91|6',
+"J" : b'\x14\xbawO\x86\x16\x8c."\x0c\x8e\xd4\x13q\xfd\x95',
+"K" : b'\x82\xd2\x81]}\xd5\x80\xfb\x13\x99\xf4\xd1\xe6\x8b\xa5\x85',
+"L" : b'\x1c\x02\xcf%\xa4/\xaa\xc7|\xaa]\xea\x89J\xe8/',
+"M" : b'\xb1\x1f\xcd\x83\x7f\x96\xe2\x92\x80\xc4oI\xf0\xdd\xb8\x88',
+"N" : b"(U\xab\xe1\xf7\xc9p\x13r[\xcb'\xa65&\x8c",
+"O" : b':\x08\xc3` \xad\xc3\xe0v\x15n\x8fg\x9b\xa6\xf1',
+"P" : b'\xd7\xa8\xb9\xd7G\xf7\xdc\xf1~7\xc7\xae\x80\xcfZ^',
+"Q" : b':\xad|}2\xf7\xbd\x9d\r\xb5\xf5L:05;',
+"R" : b'\xd0\xc4\xa6\x17\xbd\xda\xb9\xaag]V\x91\xb6\xc4\xcc\xac',
+"S" : b'N\xa5\xfe\x93\x8c\xfb\x7f=\x07/["J\xe0}\xb6',
+"T" : b'\xc5(2\xd7\x1de\xac4\x0f\xa6[\xfd\x18L\r\xd7',
+"U" : b'\x05Fh\r\xbb \xbcGjm\xae\xe3\x17\xb7$\xe9',
+"V" : b'%@\xcd@@\x85qn\xaez0P\xb0\x7f\xac\x8d',
+"W" : b'\xab$\xde7\xe0\xac_0=,?\xf2y\x92\x84\x11',
+"X" : b'VS\x9a\xafg4\xe5@\x90\xe3\xdd<\xe2\xe7w\xbe',
+"Y" : b'\xf1\x971K\x9e\x83\xb1\x9c\xd3Q\xd4mv#\xaa-',
+"Z" : b'7\xb5\xe4\xc7\xfeu\xfe\x9f\x1fZ\xcc\xe6\xd6\xd7\xb2\xe0',
+"{" : b'\xe9\xad',
+"}" : b'q\xfb!8aL\xef"\xe9\x19aO\xaa\xae\x03W',
+"@" : b'\xd0\x98E+MZ\x920',
+"#" : b'\xa1<\xd7\xdf\xb4\x9a\xe6\x82\x90\xc1\xd9\xcf_\x8a_#',
+"$" : b'v\x0f*\xfe\xe4M\xa2\xe9\x8d\x0c\xdc.\x7f\\\xa4y',
+"!" : b'M\x1e\xc7"\x04\x94\xfd_\x14 \xd4\xda\x12\x80\xf3\xac',
+"%" : b'hK\x9a\xa3\xa9\x95?\x81_\xc9u\xc5\xadd0x',
+"*" : b"\xe5\xc4\xe2\xb9\x94E\xde\r\x81\xc3\xfd2.'\xc5\xff",
+"_" : b'\xa5\xd1+\xb0\xd3=\xe6i\x1cW\xf5&\x86&\xabk'
+}
+```
+After this, I wrote another script to compare the encrypted flag to this dictionary.
+
+```python
+with open('flag.txt.encrypted', "rb") as f:
+    data = f.read()
+for i in range (0,len(data),16):
+    info = data [i:i+16] # Splitting the encrypted flag into blocks of 16, as each block of 16 corresponds to one character
+    for x,y in dict1.items():
+        if info == y:
+            flag = flag + x
+
+print (flag)
+```
+
+And there we have the flag ```CTFSG{wr0ng_m0d3_m1ght_45_w3ll_d0nt_3ncrypt}```.
+
+
+## Never Gonna Give
+---
+### Description
+Steve and Dave use a One Time Pad to encrypt their conversations. Steve likes to talk about Rick Astley songs, Dave...likes to talk about flags.
+
+[Never Gonna Give.zip](https://github.com/arul00/CTF-Stuff/files/6365935/Never.Gonna.Give.zip)
+
+---
+### Solution
+I did not really have much experience with One Time Pads, so I went to Google about what it is and how we can break it. And then I found out about this method called [Crib Dragging](https://samwho.dev/blog/toying-with-cryptography-crib-dragging/). Apparently it can break two ciphertexts if they are using the same OTP key and if we know certain parts of the actual message. Since we know the first part of the flag ('CTFSG'), I thought we can try this out.
+
+I went to look for Crib Dragging tools, the online ones weren't really effective, but I stumbled across this [cribdrag tool](https://github.com/SpiderLabs/cribdrag), which is good. Do take note that it is written in Python 2, so you gotta install that if you don't already have it.
+
+So, I loaded up the tool and entered 'CTFSG' as my first crib.
+<img width="947" alt="Screenshot 2021-04-23 220855" src="https://user-images.githubusercontent.com/22212091/115883979-f8b03a00-a480-11eb-8b59-83332723fedf.png">
+
+Most of the output I got was gibberish, except this one, which was decipherable.
+<br>
+<img width="95" alt="Screenshot 2021-04-23 220920" src="https://user-images.githubusercontent.com/22212091/115884100-1c738000-a481-11eb-85f3-3191c8607907.png">
+<br>
+```'the g'```, it might be part of something. 
+Since this challenge is about Rick Astley, I figured the text might be about his song 'Never Gonna Give You Up'. So I went to check the lyrics for that song.
+<br>
+<img width="672" alt="Screenshot 2021-04-23 221009" src="https://user-images.githubusercontent.com/22212091/115884308-580e4a00-a481-11eb-802f-550df2e636ff.png">
+<br>
+And, yes it is. ```the g``` is actually 'the game'.
+So, I entered this as my next crib, and got a partial flag.
+However, I wasn't really sure what the next cribs were, and after staring at it for a long time and begging people for hints, I eventually plugged in the entire line of song as a crib.
+<br>
+<img width="433" alt="Screenshot 2021-04-23 221030" src="https://user-images.githubusercontent.com/22212091/115884550-9d327c00-a481-11eb-92c2-eaf2c66bd174.png">
+<br>
+And there, we have the flag.
+<br>
+<img width="275" alt="Screenshot 2021-04-23 221055" src="https://user-images.githubusercontent.com/22212091/115884580-a58ab700-a481-11eb-83d9-ec5360d935af.png">
+<br>
+```CTFSG{m4yb3_d0nt_r33us3_k3y5_0k}```
+
+
+## Really Secure Algorithm
+---
+### Description
+What happens when you've got a flag encrypted with RSA but you've got no private key, only the public key and the two primes? Is it even possible to decrypt the flag??
+
+[Really Secure Algorithm.zip](https://github.com/arul00/CTF-Stuff/files/6357512/Really.Secure.Algorithm.zip)
+
+---
+### Solution
+It's RSA, you know the drill. 
+
+I suggest you look at [RSA Wikipage](https://en.wikipedia.org/wiki/RSA_(cryptosystem)), if you still don't understand how the math works. 
+We have p, q, e and c, so we can just run this script below.
+```python
+from Crypto.Util.number import long_to_bytes, bytes_to_long
+import gmpy2
+import math
+
+
+p = 163457106450783445806665763936840795224335118638688747118145262051536966852927178714354472420894161567345798876484431370418160230276680030234659674821189812953137829238466457790011401311065933161137619929619240992208932900359653100522606364930588672146004948494703010403785602523382411941848901725348597907089
+q = 169092937488173601150107963609235159099068030966810117600280934194940989117225047356630083642289619557970268922961226770984214401901054922632851546963233694621594948971464931017385316063330450260229563385896256150161969568316042071516610553055735726314300969140360092385383098597756071675521622606699780460681
+n = p*q
+e = 65537
+with open('flag.txt.encrypted', "rb") as f:
+    data = f.read()
+c = bytes_to_long (data)
+
+totient = (p-1)*(q-1)
+d = gmpy2.invert (e, totient)
+m = gmpy2.powmod (c, d, n)
+print(long_to_bytes(m))
+```
+And voilà, the flag ```CTFSG{r54_15_45ymm3tr1c_3ncrypt10n}```.
+
+
+## XorMillion
+---
+### Description
+I've encrypted the flag and given it to you. This time i've used a stronger encryption! My key is now longer, and i've XOR-ed the thing a million times. SURELY this must be hard to decrypt.
+
+[XorMillion.zip](https://github.com/arul00/CTF-Stuff/files/6365767/XorMillion.zip)
+
+---
+### Solution
+I had came across a similar challenge in Angstrom CTF 2021. From encrypt.py, we know that the key length is 5, which is the same length as the first part of the flag ('CTFSG'). Hence, we can use the properties of XOR ```(A^A=0)```.
+
+I wrote a script to XOR the first part of the flag, "CTFSG" with the first five bytes of the ciphertext in the encrypted flag file. Now we get a list of all the possible keys. 
+
+```python
+key = "CTFSG"
+key = bytes(key, 'ascii')
+keyList = []
+counter = 0
+data = ciphertext
+while counter < len(ciphertext) - 5:
+	res = ""
+	try:
+		res = res + chr(data[counter] ^ key[0])
+		res = res + chr(data[counter+1] ^ key[1])
+		res = res + chr(data[counter+2] ^ key[2])
+		res = res + chr(data[counter+3] ^ key[3])
+		res = res + chr(data[counter+4] ^ key[4])
+
+	except Exception as e:
+		break
+	keyList.append(res)
+	counter = counter + 1
+```
+Then, I tried out all the possible keys by XORing them with the encrypted file. 
+
+```python
+data = ciphertext
+for k in keyList:
+	#k = bytes(k, 'ascii')
+	counter = 0
+	res = ''
+	while counter < len(data) - 5:
+		res = res + chr(data[counter] ^ ord(k[0]))
+		res = res + chr(data[counter+1] ^ ord(k[1]))
+		res = res + chr(data[counter+2] ^ ord(k[2]))
+		res = res + chr(data[counter+3] ^ ord(k[3]))
+		res = res + chr(data[counter+4] ^ ord(k[4]))
+		counter = counter + 5
+	print(res)
+```
+
+Here is the flag: ```CTFSG{w0w_th4t_w45_4ctu4lly_r34lly_u53l355}```.
+
+
+## Welp 1.0
+---
+### Description
+APOCALYPSE has recently started to encrypt all their files with RSA. But the moment we saw their implementation, all we can say is welp. Let's see if you can manage to decrypt a flag that has been encrypted with their script.
+
+<em>981 Points, 9 Solves</em>
+
+[Welp 1.0.zip](https://github.com/arul00/CTF-Stuff/files/6446838/Welp.1.0.zip)
+
+
+---
+### Solution
+So this is not like usual RSA challenges I have encountered, instead of being provided ```n,e and c``` in decimal format, a PEM format certficate was provided instead.
+
+After some googling, I [found out](https://crypto.stackexchange.com/questions/37075/how-can-i-obtain-the-raw-decimal-value-of-an-rsa-keys-modulus/62873) that the raw values of the modulus and the exponent can be obtained from the cert, using OpenSSL.
+
+So I got to work, 
+
+
+<img width="626" alt="pem1" src="https://user-images.githubusercontent.com/22212091/117558111-b3108580-b0ac-11eb-9a86-2b9260754eba.png">
+<br>
+Now, we have obtained the hex-encoded modulus and exponent. I converted them to decimal, so you can do that if you want to. 
+
+Something we can observe about the exponent is that it's reallyyyy small. (Then again, I didn't really notice this at first, and was trying to bruteforce p and q for an hour).
+
+Anyway, this is how you obtain the ciphertext ```(c)``` from the original message ```(m)``` .<br>
+![image](https://user-images.githubusercontent.com/22212091/117558253-4302ff00-b0ae-11eb-95aa-2d140b49494b.png)
+<br>
+
+Since the value of e is really small (2 in this case), m^e works out to be really small. It seems that c and n are of similar size, so the value of k wouldn't be too big, hence it is possible to bruteforce for k.
+
+So, I wrote a script to recover the original message.
+```python
+N = 94281539664661443839479961649061809010726447508899573526978384709261457908750296474338528739389058575529027889789946657047466284579551755227811833536191635115282634936128257377186098018772306003864296244081503679406058935702150659959936988541372742491694328952975315086339366597427248179508411432275043796841                           
+e = 2
+with open('flag.txt.encrypted', "rb") as f:
+    data = f.read()
+c = bytes_to_long(data)
+                                 
+from Crypto.Util.number import long_to_bytes
+import gmpy2
+import math
+for k in range(0, 100000):
+    m, t = gmpy2.iroot(c + k * N, e)
+    if t:
+        print(long_to_bytes(m))
+
+```
+```FLAG: Cyberthon{w3lp_th15_15_4b50lut3ly_n0t_h0w_y0u_5h0uld_r5444}```
+
+
+# Welp 2.0
+---
+## Description
+APOCALYPSE heard us dissing on their RSA encryption script and decided to update it. But the moment we saw their updated implementation, we all collectively went welp once again. Let's see if you can manage to decrypt a flag that has been encrypted with their updated script.
+
+<em>989 Points, 5 solves</em>
+
+[Welp 2.0.zip](https://github.com/arul00/CTF-Stuff/files/6446839/Welp.2.0.zip)
+
+
+---
+My solution was exactly the same as the previous one. I obtained the modulus and exponent from the PEM cert attached, and ran the script I wrote for Welp 1.0 to recover the flag for this challenge. So if you are unsure of how the math works in this challenge, I provided a rather detailed writeup explaining the math in [my writeup for Welp 1.0](https://github.com/arul00/CTF-Stuff/tree/main/Cyberthon%20Writeups/Finals/Welp%201.0)
+
+My script:
+```python
+N = 116109462428014364685568347980845660564176765917917569663654301968058559886483532050027185325083232011892055133016195361214005364736150994064025031556231417215237226609988903017153848201688433902470076301891154513857343579183267274550705906145735587325033413440560940939617392854792461342141995283692337989089                           
+e = 5
+with open('flag.txt.encrypted', "rb") as f:
+    data = f.read()
+c = bytes_to_long(data)
+                                 
+from Crypto.Util.number import long_to_bytes
+import gmpy2
+import math
+for k in range(0, 100000):
+    m, t = gmpy2.iroot(c + k * N, e)
+    if t:
+        print(long_to_bytes(m))
+  ```
+  
+  Here's the flag: ```Cyberthon{f0rg0t_t0_p4d!}```
