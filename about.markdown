@@ -4,12 +4,16 @@ title: accent
 author: Ankit Sultana
 permalink: /about
 ---
+Hello! I am Arul, a student from Singapore. 
 
-Hi! My name is yourname!
+I love eating, sleeping and tinkering with computers. 
 
-> One shalt not speak shakespearean, or brocolli McDonalds
+I am also an amateur CTF player who is learning the ropes. 
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Hit me up at <a href = mailto:official@arul.me>official(at)arul(dot)me</a> for a chat or anything.
 
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```bash
+1337 Codegate Junior CTF Finals    (2018)[Lord_Idiot]   - 17th
+1338 Defcamp CTF Finals            (2018)[HATS SG]      - 12th
+1339 Codegate Junior CTF Finals    (2019)[Lord_Idiot]   - 2nd
+```
