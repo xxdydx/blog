@@ -18,5 +18,5 @@ Hit me up at [official(at)arul(dot)me](mailto:official@arul.me) for a chat or a 
 Lag 'N' Crash Interpoly CTF        (2021)[Elmo]         - 1st
 Cyberthon CTF                      (2021)[RI Elmo]      - 12th
 picoCTF                            (2021)[xxdydx]       - Top 25%
-Angstrom CTF                       (2021)[xxdydx]       - Top 30%
+ångstromCTF                        (2021)[xxdydx]       - Top 30%
 ```
