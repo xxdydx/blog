@@ -107,14 +107,14 @@ a:hover {
     
     font-size: 13px;
     border-radius: 20px;
-    background: $accent-color;
+    background: $bg-color;
     font-weight: normal;
     padding: $base-spacing/4 $base-spacing;
     color: #fff;
 }
 .button:hover {
-    background: #fffafa;
-    color: #232b2b;
+    background: $accent-color;
+    color: #fff;
     -webkit-transition: 0.3s ease;
 }
 .rrssb-buttons {
