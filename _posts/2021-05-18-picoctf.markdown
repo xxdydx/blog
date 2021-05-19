@@ -2,7 +2,7 @@
 layout: post
 title: Past picoCTF writeups
 author: Arul Kumaran
-permalink: /Cyberthon-2021.html
+permalink: /picoctf.html
 ---
 
 (Disclaimer: Work in Progress)
