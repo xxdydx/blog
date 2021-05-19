@@ -16,7 +16,7 @@ description: >
     Blog posts, writeups and guides written by Arul
 
 # This will what will show against &copy; in the footer
-copyright: Arul
+copyright: xxdydx 2016-2021
 # Toggle your short bio, which will displayed on your index page
 # Just toggle it and run jekyll again to see
 intro: false         # Tip: Remove the span from site_heading if intro is set to true
