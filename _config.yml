@@ -1,8 +1,8 @@
 # User Settings | Edit there as per required
 
 title: Arul's Blog
-url: "https://arul.me"
-baseurl: "/blog"
+url: "https://blog.arul.me"
+baseurl: "/"
 
 # This will show up at the top of index page
 site_heading: >
