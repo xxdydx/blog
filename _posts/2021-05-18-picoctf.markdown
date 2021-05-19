@@ -1,0 +1,94 @@
+---
+layout: post
+title: Past picoCTF writeups
+author: Arul Kumaran
+permalink: /Cyberthon-2021.html
+---
+
+(Disclaimer: Work in Progress)
+
+## New Caesar
+---
+### Description
+We found a brand new type of encryption, can you break the secret code? (Wrap with picoCTF{}) ```mlnklfnknljflfmhjimkmhjhmljhjomhmmjkjpmmjmjkjpjojgjmjpjojojnjojmmkmlmijimhjmmj```
+
+[new_caesar.zip](https://github.com/xxdydx/CTF-Stuff/files/6438749/new_caesar.zip)
+
+---
+### Solution
+This might be only a 60 point challenge, but I actually spent quite a bit of time working on this problem. 
+This encryption script was given to us, so let's try to analyse it.
+
+```python
+import string
+
+LOWERCASE_OFFSET = ord("a")
+ALPHABET = string.ascii_lowercase[:16]
+
+def b16_encode(plain):
+	enc = ""
+	for c in plain:
+		binary = "{0:08b}".format(ord(c)) 
+		enc += ALPHABET[int(binary[:4],2)] 
+		enc += ALPHABET[int(binary[4:],2)]
+	return enc
+
+def shift(c, k):
+	t1 = ord(c) - LOWERCASE_OFFSET
+	t2 = ord(k) - LOWERCASE_OFFSET
+	return ALPHABET[(t1 + t2) % len(ALPHABET)]
+
+flag = "redacted"
+key = "redacted"
+assert all([k in ALPHABET for k in key])
+assert len(key) == 1
+
+b16 = b16_encode(flag)
+enc = ""
+for i, c in enumerate(b16):
+	enc += shift(c, key[i % len(key)])
+	
+print(enc)
+```
+From the code we can learn two things. 
+
+Firstly, each alphabetic character in the flag is converted to binary (8 digits in each number), and it is split into two. So, for example, if the character ```'A'``` is in the flag, it is converted to the binary number ```01000001```. Then, this number is split into ```0100``` and ```0001```, which is 4 and 1 respectively. Then, the 4th and 1st letters of the 'ALPHABET' (with only 16 letters) is added. This process is repeated for all other characters in the flag, and we get a 'b16_encoded' (name of the function) string.
+
+Secondly, each character in the string is shifted by a certain amount (the key), but since we know the size of the key but not the key itself, we can try bruteforcing. I guess this is the Caesar part of the cipher.
+
+Anyway, I wrote a script to reverse the process.
+
+```python
+import string
+
+
+ALPHABET = string.ascii_lowercase[:16]
+enc = "mlnklfnknljflfmhjimkmhjhmljhjomhmmjkjpmmjmjkjpjojgjmjpjojojnjojmmkmlmijimhjmmj"
+keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+for k in keys:
+    gg = ''
+    for i,c in enumerate (enc):
+        t1 = ord (c) - 97
+        t2 = ord (k) - 97
+        gg = gg + ALPHABET[(t1-t2) % len(ALPHABET)]
+    flag = ''
+    for c in range (0,len(gg),2):
+        
+        x = ord(gg [c]) - 97
+        
+        y = ord(gg [c+1]) - 97
+        
+        z = "{0:04b}".format(x) + "{0:04b}".format(y)
+    
+        flag += chr(int(z,2))
+
+        
+
+
+    print (k, ":", flag)
+```
+Most of the output we got was gibberish, except this line:
+
+```w : et_tu?_a2da1e18af49f649806988786deb2a6c```
+
+There we go, the flag: ```picoCTF{et_tu?_a2da1e18af49f649806988786deb2a6c}```.
