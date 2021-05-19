@@ -17,6 +17,9 @@ This might've been a pretty short CTF (only 7 hours!), but I can say it'll be a 
 
 
 # Writeups
+
+
+
 ## Byte Rotator
 ### Description
 I've encrypted the flag and given it to you. All you have to do is decrypt it!
