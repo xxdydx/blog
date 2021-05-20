@@ -1,30 +1,23 @@
-
+  
 <footer>
     {% include paginate.html %}
     {% include suggestion.html %}
-        {% if page.url == "/about" or paginator.total_pages == 1 or page.url == "/404" %}
-        <div class="container" style="text-align: center; margin-bottom: 20px">
-            <a target="_blank" class="button" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                Click Me!
-            </a>
-        </div>
-    {% endif %}
     <hr />
     <div class="user-footer">
         <div class="alignable pull-left">
-           &copy;AK 2016-2021, Built with <a href="http://jekyllrb.com/" class="different-highlight underline">Jekyll</a> and <a href="http://ankitsultana.com/accent/" class="different-highlight underline">accent</a>
+            Built with <a href="http://jekyllrb.com/" class="different-highlight underline">Jekyll</a> and <a href="http://ankitsultana.com/accent/" class="different-highlight underline">accent</a>
         </div>
         <div class="alignable pull-right">
-
-
-
-			<a target="_blank" href="https://github.com/xxdydx"><i class="fab fa-github"></i></a>
-			
-
-			<a target="_blank" href="https://www.linkedin.com/in/arul-k"><i class="fab fa-linkedin"></i></a>
-			<a target="_blank" href="mailto:official@arul.me"><i class="fas fa-envelope-open-text"></i>
+            <a target="_blank" href="https://twitter.com/{{ site.twitter_username }}" class="button">
+                @{{ site.twitter_username }}
+            </a>
+            <a href="mailto:{{ site.email }}" class="button">
+                mail
+            </a>
+            <a target="_blank" href="{{ site.url }}{{ site.baseurl }}/feed.xml" class="button">
+                rss
+            </a>
         </div>
     </div>
 </footer>
-
 
