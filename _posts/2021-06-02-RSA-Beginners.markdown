@@ -42,7 +42,7 @@ $$ \begin{equation} c \equiv m^{e} \pmod N
 
 $$\begin{equation} c = m^e + kn (k \in ℤ) \end{equation} $$
 
-Using the properties of modulo math, we derive the 2nd equation from the 1st. Since the value of e is really small (2 in this case), $ m^e $ works out to be really small. It seems that c and n are of similar size, so the value of k wouldn’t be too big hence it is possible to bruteforce for k.
+Using the properties of modulo math, we derive the 2nd equation from the 1st. Since the value of e is really small (2 in this case), \\( m^e \\) works out to be really small. It seems that c and n are of similar size, so the value of k wouldn’t be too big hence it is possible to bruteforce for k.
 
 Hence, we can easily rearrange the equation to get:
 
