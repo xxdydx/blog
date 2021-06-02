@@ -46,7 +46,7 @@ Hence, we can easily rearrange the equation to get:
 
 
 $$ \begin{equation} 
-\sqrt[e]{c + k \cdot N} = m
+m = \sqrt[e]{c + k \cdot N}
 \end{equation} $$
 
 
