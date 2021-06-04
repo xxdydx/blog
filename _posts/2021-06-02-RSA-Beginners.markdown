@@ -111,4 +111,46 @@ print('message:', long_to_bytes(m))
 
 Here's the flag: ```xxdydx{lAr93_3XpoN3n7_15_8ad_lOL}```
 
+
+### Small Modulus Attack
+The whole secure premise of RSA is hinged on the fact that it is hard to factorise the modulus. Hence, if the modulus is small enough to be factorised easily, or if the two primes are known, it'll be very easy to find the original message.
+
+Here's a sample problem.
+
+```bash
+n = 1280678415822214057864524798453297819181910621573945477544758171055968245116423923
+e = 65537
+c = 525712785518469874437278825147177601576667010796196954724530146238629326041160681
+```
+
+Using a popular factorising tool, [FactorDB](factordb.com), we can actually factorise ```n```, to give ```p``` and ```q```. According to [FactorDB](http://factordb.com/index.php?id=1100000002524292819), the values of p and q are:
+
+```bash
+p = 1899107986527483535344517113948531328331
+q = 674357869540600933870145899564746495319033
+```
+
+Hence, we can get to work now, as now all we need is to find the totient function, and with that we can find out the private key, ```d```.
+
+**The Script**
+
+```python
+from Crypto.Util.number import long_to_bytes, bytes_to_long
+import gmpy2
+import math
+
+n = 1280678415822214057864524798453297819181910621573945477544758171055968245116423923
+p = 1899107986527483535344517113948531328331
+q = 674357869540600933870145899564746495319033
+e = 65537
+c = 525712785518469874437278825147177601576667010796196954724530146238629326041160681
+
+totient = (p-1)*(q-1)
+
+d = gmpy2.invert (e, totient) # d = e^(-1) mod totient
+m = gmpy2.powmod (c, d, n)
+print(long_to_bytes(m))
+```
+
+Here's the flag: ```xxdydx{factorise_the_modulus}```.
 To be continued...
