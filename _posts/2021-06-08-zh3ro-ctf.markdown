@@ -21,10 +21,10 @@ d_b=1530912103000878911245365462439827809202613967830133475981723634995776019727
 e=65537
 ```
 
-We can see from the source code that three primes, \(p, q, r\) were chosen, \(n_a = p * q$$ and $$n_b = p * r\) and both moduli share the same factor, \(p\).
+We can see from the source code that three primes, \\( p,q,r \\) were chosen, \\( n_a = p \times q \\)and \\( n_b = p \times r \\) and both moduli share the same factor,\\( p \\)
 
 **The Math**
-The private exponent, \(d\), and the public exponent \(e\), are related as shown below.
+The private exponent, \\( d \\), and the public exponent \\( e\\), are related as shown below.
 
 
 $$ \begin{equation} de \equiv 1 \pmod lcm(p-1,q-1) \end{equation} $$
@@ -35,7 +35,7 @@ Hence,
 $$\begin{equation} de_a = 1 + k(p-1)(q-1) \end{equation} $$
 
 
-for some \(k \in ℤ\).
+for some \\( k \in ℤ \\).
 
 We can apply this to the other modulus as well, and then we get:
 
@@ -46,9 +46,9 @@ $$\begin{equation} ed_a -1 = k_a(p-1)(q-1) \end{equation} $$
 $$\begin{equation} ed_b -1 = + k_b(p-1)(r-1) \end{equation} $$
 
 
-We are given the values of \(d_a,d_b,e\), so we can find the GCD (greatest common divisor) of \(de_a -1\) and \(de_b -1\), to find a multiple of \(p-1\). Let's call this \(xp\).
+We are given the values of \\( d_a,d_b,e \\), so we can find the GCD (greatest common divisor) of \\( ed_b -1 \\) and \\( ed_a -1 \\), to find a multiple of \\( p-1 \\). Let's call this \\( xp \\).
 
-Once we have found \(xp\), we can bruteforce for \(x\), by asserting that \(p\) is prime.
+Once we have found \\( xp \\), we can bruteforce for \\( x \\) by asserting that\\( p \\) is prime.
 
 This is my solution so far:
 
@@ -69,7 +69,7 @@ for i in range(1, 100):
     if gmpy2.is_prime(p):
         break
 ```
-Now, since we know p, we can try to find q, in a similar manner.
+Now, since we know \\( p\\), we can try to find \\( q \\), in a similar manner.
 
 $$\begin{equation} frac{ed_a -1}{p-1} = k_a(q-1) \end{equation} $$
 
@@ -87,7 +87,7 @@ for ka in range (1,100000):
             continue
 ```
 
-Now, we find \(r\) in the exact same manner we find \(q\).
+Now, we find \\( r \\) in the exact same manner we find \\( q\\).
 ```python
 kbr = gmpy2.c_div(gmpy2.sub(bed,1), gmpy2.sub(p,1))
 for kb in range(1, 100000):
