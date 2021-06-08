@@ -2,7 +2,7 @@
 layout: post
 title: zh3ro CTF 2021
 author: Arul Kumaran
-permalink: /rsa-guide-beginners.html
+permalink: /zh3ro.html
 ---
 I only discovered this CTF 3 hours before it ended (haha). So I decided to work on a few crypto challenges, but only managed to solve this 100 point RSA challenge which took up most of my time. But doing this challenge has opened my mind up to a lot more RSA concepts. I'd like to thank Google, without whom I couldn't have solved this challenge.
 
