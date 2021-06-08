@@ -29,7 +29,7 @@ We can see from the source code that three primes, \\( p,q,r \\) were chosen, \\
 The private exponent, \\( d \\), and the public exponent \\( e\\), are related as shown below.
 
 
-$$ \begin{equation} de \equiv 1 \pmod lcm(p-1,q-1) \end{equation} $$
+$$ \begin{equation} de \equiv 1 \mod {lcm(p-1,q-1)} \end{equation} $$
 
 
 Hence,
