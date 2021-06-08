@@ -11,6 +11,10 @@ I only discovered this CTF 3 hours before it ended (haha). So I decided to work 
 ### Description
 Alice and Bob are sending their flags to Dave. But sadly Dave lost the modulus :( Try to retrieve the flag!
 
+
+[alice_bob_dave.zip](https://github.com/xxdydx/blog/files/6616446/alice_bob_dave.zip)
+
+
 ### Solution
 In the folder, we can find a source code for this RSA implementation, and the output as shown below.
 ```bash
@@ -21,12 +25,12 @@ d_b=1530912103000878911245365462439827809202613967830133475981723634995776019727
 e=65537
 ```
 
-We can see from the source code that three primes, \\( p,q,r \\) were chosen, \\( n_a = p \times q \\)and \\( n_b = p \times r \\) and both moduli share the same factor,\\( p \\)
+We can see from the source code that three primes, \\( p,q,r \\) were chosen, \\( n_a = p \times q \\) and \\( n_b = p \times r \\) and both moduli share the same factor, \\( p \\).
 
 **The Math**
 
 
-The private exponent, \\( d \\), and the public exponent \\( e\\), are related as shown below.
+The private exponent, \\( d \\), and the public exponent, \\( e\\), are related as shown below.
 
 
 $$ \begin{equation} de \equiv 1 \mod {lcm(p-1,q-1)} \end{equation} $$
@@ -34,10 +38,11 @@ $$ \begin{equation} de \equiv 1 \mod {lcm(p-1,q-1)} \end{equation} $$
 
 Hence,
 
-$$\begin{equation} de_a = 1 + k(p-1)(q-1) \end{equation} $$
+$$\begin{equation} ed_a = 1 + k(p-1)(q-1) \end{equation} $$
 
 
 for some \\( k \in ℤ \\).
+
 
 We can apply this to the other modulus as well, and then we get:
 
@@ -73,7 +78,7 @@ for i in range(1, 100):
 ```
 Now, since we know \\( p\\), we can try to find \\( q \\), in a similar manner.
 
-$$\begin{equation} frac{ed_a -1}{p-1} = k_a(q-1) \end{equation} $$
+$$\begin{equation} \frac{ed_a -1}{p-1} = k_a(q-1) \end{equation} $$
 
 ```python
 kaq = gmpy2.c_div(gmpy2.sub(aed,1), gmpy2.sub(p,1))
@@ -112,7 +117,7 @@ Hey Dave its Bob here.My flag is 70_R3sCue_3742986}
 
 Here's the flag: ```zh3r0{GCD_c0m3s_70_R3sCue_3742986}```.
 
-This is my full code, I'm sorry for the weird variable namin, I always had trouble naming my variables.
+This is my full code, I'm sorry for the weird variable naming, I always had trouble naming my variables.
 ```python
 from Crypto.Util.number import long_to_bytes, bytes_to_long
 from decimal import *
