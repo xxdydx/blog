@@ -24,6 +24,8 @@ e=65537
 We can see from the source code that three primes, \\( p,q,r \\) were chosen, \\( n_a = p \times q \\)and \\( n_b = p \times r \\) and both moduli share the same factor,\\( p \\)
 
 **The Math**
+
+
 The private exponent, \\( d \\), and the public exponent \\( e\\), are related as shown below.
 
 
