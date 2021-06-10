@@ -161,7 +161,7 @@ n =  171731371218065444125482536302245915415603318380280392385291836472299752747
 e =  65537
 c =  70714384643118444370704561367337462736501868678891899446079778482983138453009820058229381851044255506983008836721646205239556140398487897703881844518256564914225164619536255336792526924379355949730690493361729237445684355599472452115656074315432477235148635419354509824295429620435724113577096532131823665386
 ```
-\\(n\\) is given to be prime, and you can prove that it is prime, perhaps using GMPY2's isPrime function. Anyways, if a prime number modulus is used, it is very easy to crack the private key, \\( d \\), since the [totient function](https://crypto.stackexchange.com/questions/57915/rsa-what-would-happen-if-you-chose-n-to-be-a-prime/57917) of the this modulus, \\( n \\), is simply just \\( n -1 \\). Hence, it is very easy to just use GMPY2's invert function to figure out \\( d \\), given \\( e \\) and \\( n \\).
+\\(n\\) is given to be prime, and you can prove that it is prime, perhaps using GMPY2's isPrime function. Anyways, if a prime number modulus is used, it is very easy to crack the private key, \\( d \\), since the [totient function](https://crypto.stackexchange.com/questions/57915/rsa-what-would-happen-if-you-chose-n-to-be-a-prime/57917) of the  modulus, \\( n \\), is simply just \\( n -1 \\). Hence, it is very easy to just use GMPY2's invert function to figure out \\( d \\), given \\( e \\) and \\( n \\).
 
 
 Here's my code:
