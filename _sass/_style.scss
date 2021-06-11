@@ -89,7 +89,6 @@ body {
 }
 a {
     text-decoration: none;
-
     color: $secondary-color;
 	font-weight: normal;
     padding: 0;
@@ -97,6 +96,10 @@ a {
 a:hover {
     text-decoration: none;
     color: $accent-color;
+}
+.iconzz
+{
+	color:inherit !important;
 }
 
 .button {
