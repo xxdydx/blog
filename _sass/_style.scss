@@ -198,6 +198,9 @@ footer {
     @extend .alignable;
     float: right;
 }
+html.light-mode footer .footerIcon a, html.light-mode footer .footerIcon a:hover, html.light-mode footer .footerIcon a:visited{
+  border: 0
+}
 
 /* Navbar
  * * * * * * * * * * * */
