@@ -11,6 +11,7 @@
 	}
     p {
         line-height: $base-line-height;
+	
     }
     h1, h2, h3, h4, h5, h6, dl {
         margin: 1em 0;
@@ -27,32 +28,40 @@
     }
     h1 {
         font-size: 35px;
+	color: $text-color;
     }
     h2 {
         font-size: 32px;
+	color: $text-color;
 	
     }
     h3 {
-        font-size: 29px;
-	    font-weight: normal;
+        font-size: 25px;
+	    
+	    color: $text-color;
     }
     h4 {
         font-size: 26px;
+	    color: $text-color;
     }
     h5 {
         font-size: 23px;
+	    color: $text-color;
     }
     h6 {
         font-size: 20px;
+	    color: $text-color;
     }
     p {
         font-size: 19px;
         margin: $base-spacing/3 0;
         font-weight: normal;
+	    color: $text-color;
     }
     a {
         text-decoration: none;
         border-bottom: 2px solid $underline-color;
+	    color: $text-color;
     }
     a:hover {
         color: inherit;
