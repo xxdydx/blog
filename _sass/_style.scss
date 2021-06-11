@@ -51,7 +51,7 @@ body {
         padding: 0.05em 0.5em;
         border-radius: 15px;
         background: $accent-color;
-        color: #fff;
+        color: $text-color;
     }
     ::selection {
         color: #fff;
@@ -62,6 +62,7 @@ body {
         margin-bottom: $base-spacing/1.1;
         font-size: 40px;
         font-family: 'Inter';
+	color: $text-color;
         @media (max-width: $break-small) {
             font-size: 32px;
         }
@@ -110,7 +111,7 @@ a:hover {
     background: $bg-color;
     font-weight: bold;
     padding: $base-spacing/4 $base-spacing;
-    color: #000;
+    color: $text-color;
 }
 .button:hover {
     background: $accent-color;
@@ -149,6 +150,7 @@ footer {
     h2 {
         font-size: 20px;
         font-weight: lighter;
+	 color: $text-color;
     }
 }
 
@@ -160,6 +162,7 @@ footer {
     margin: auto;
     font-size: 30px;
     font-family: 'Inter';
+	color: $text-color;
 }
 .container {
     max-width: $max-width;
