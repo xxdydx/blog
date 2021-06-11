@@ -98,18 +98,7 @@ a:hover {
     text-decoration: none;
     color: $accent-color;
 }
-.underline {
-    border-bottom: 2px solid $underline-color;
-}
-.underline:hover {
-    color: #text-color;
-    -webkit-transition: 0.4s ease;
-    -moz-transition: 0.4s ease;
-    border-bottom: 2px solid $accent-color;
-}
-.noHover{
-    pointer-events: none;
-}
+
 .button {
     
     font-size: 13px;
