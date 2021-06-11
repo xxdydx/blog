@@ -23,7 +23,7 @@
         font-size: 40px;
         margin-bottom: $base-spacing;
         font-family: 'Inter';
-        color: $accent-color;
+        color: $secondary-color;
     }
     h1 {
         font-size: 35px;
@@ -48,7 +48,7 @@
     p {
         font-size: 19px;
         margin: $base-spacing/3 0;
-        font-weight: lighter;
+        font-weight: normal;
     }
     a {
         text-decoration: none;
@@ -84,7 +84,7 @@
         border: none;
     }
     .anchorjs-link:hover {
-        color: $accent-color;
+        color: $secondary-color;
         border: none;
     }
     .hide {
