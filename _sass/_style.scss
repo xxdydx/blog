@@ -88,12 +88,12 @@ body {
 }
 a {
     text-decoration: none;
-    color: inherit;
+    color: $accent-color;
     padding: 0;
 }
 a:hover {
     text-decoration: none;
-    color: $accent-color;
+    color: $secondary-color;
 }
 .underline {
     border-bottom: 2px solid $underline-color;
@@ -109,12 +109,12 @@ a:hover {
     font-size: 13px;
     border-radius: 20px;
     background: $bg-color;
-    font-weight: bold;
+    font-weight: normal;
     padding: $base-spacing/4 $base-spacing;
     color: $text-color;
 }
 .button:hover {
-    background: $accent-color;
+    background: $secondary-color;
     color: #fff;
     -webkit-transition: 0.3s ease;
 }
@@ -177,7 +177,7 @@ footer {
         font-size: 25px;
     }
     .post-time {
-        color: #434f5e;
+        color: #c2bcb9;
     }
     @media (max-width: $break-medium) {
         .post-time {
@@ -299,6 +299,7 @@ hr {
     margin: 0 $base-spacing/2;
     padding: $base-spacing;
     font-weight: lighter;
+	color:$text-color;
     @media (max-width: $break-small) {
     }
 }
