@@ -61,10 +61,11 @@
     a {
         text-decoration: none;
         border-bottom: 2px solid $underline-color;
-	    color: $text-color;
+	    color: $secondary-color;
     }
     a:hover {
-        color: inherit;
+        color: $text-color;
+	 
         -webkit-transition: 0.4s ease;
         -moz-transition: 0.4s ease;
         border-bottom: 2px solid $accent-color;
