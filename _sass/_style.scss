@@ -107,6 +107,9 @@ a:hover {
     -moz-transition: 0.4s ease;
     border-bottom: 2px solid $accent-color;
 }
+.noHover{
+    pointer-events: none;
+}
 .button {
     
     font-size: 13px;
