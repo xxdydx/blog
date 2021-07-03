@@ -19,6 +19,8 @@ body {
 .site-name {
     color: $accent-color;
     font-family: $font-titles;	
+font-weight: 600;
+text-transform: uppercase; 
 }
 .faded {
     color: $light-color;
