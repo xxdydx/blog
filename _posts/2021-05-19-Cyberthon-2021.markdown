@@ -13,11 +13,23 @@ This might've been a pretty short CTF (only 7 hours!), but I can say it'll be a 
 
 # Writeups
 [Byte Rotator](#byte-rotator)
+
+
 [Hashcryption](#hashcryption)
+
+
 [Never Gonna Give](#never-gonna-give)
+
+
 [Really Secure Algorithm](#really-secure-algorithm)
+
+
 [XorMillion](#xormillion)
+
+
 [Welp 1.0/2.0](#welp-10)
+
+
 
 
 ## Byte Rotator
