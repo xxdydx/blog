@@ -18,7 +18,7 @@ body {
 }
 .site-name {
     color: $accent-color;
-    font-family: $font-stack-one;	
+    font-family: $font-titles;	
 }
 .faded {
     color: $light-color;
@@ -173,6 +173,7 @@ footer {
     margin: $base-spacing 0;
     .post-title {
         font-size: 25px;
+	font-family: $font-titles;
     }
     .post-time {
         color: #c2bcb9;
