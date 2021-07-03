@@ -4,20 +4,20 @@ title: Cyberthon 2021
 author: Arul Kumaran
 permalink: /Cyberthon-2021.html
 ---
-### Team name: RI Elmo
-
-
-### Position: #12 out of ~100 teams
-
 
 Congratulations to everyone who participated for making it thus far, I'm sure the CTF was fun for most of y'all. 
-This might've been a pretty short CTF (only 7 hours!), but I can say it'll be a memorable one, having learnt a lot from this experience. Being only my 2nd CTF, I did struggle with a lot of challenges, but meh. See y'all in the next CTF!!
+This might've been a pretty short CTF (only 7 hours!), but I can say it'll be a memorable one, having learnt a lot from this experience.
 
 ![image](https://user-images.githubusercontent.com/22212091/117558526-df2e0580-b0b0-11eb-8ac0-de0d6f83acc9.png)
 
 
 # Writeups
-
+[Byte Rotator](#byte-rotator)
+[Hashcryption](#hashcryption)
+[Never Gonna Give](#never-gonna-give)
+[Really Secure Algorithm](#really-secure-algorithm)
+[XorMillion](#xormillion)
+[Welp 1.0/2.0](#welp-10)
 
 
 ## Byte Rotator
@@ -72,7 +72,8 @@ First, I wrote a script to connect to the server, get the 'encrypted' output for
 
 ```python
 f = open("dict.txt", 'w')
-for b in ascii_uppercase: # also digits and ascii_lowercase and symbols
+characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890{}_"
+for b in characters: 
     p = remote('3qo9k5hk5cprtqvnlkvotlnj9d14b7mt.ctf.sg', 10101)
     input = b
     log.info("Input: " + input)
@@ -269,7 +270,7 @@ I've encrypted the flag and given it to you. This time i've used a stronger encr
 
 
 ### Solution
-I had came across a similar challenge in Angstrom CTF 2021. From encrypt.py, we know that the key length is 5, which is the same length as the first part of the flag ('CTFSG'). Hence, we can use the properties of XOR ```(A^A=0)```.
+First of all, you need to know that XORing something a million times is the same as XORing it once. I had came across a similar challenge in Angstrom CTF 2021. From encrypt.py, we know that the key length is 5, which is the same length as the first part of the flag ('CTFSG'). Hence, we can use the properties of XOR ```(A^A=0)```.
 
 I wrote a script to XOR the first part of the flag, "CTFSG" with the first five bytes of the ciphertext in the encrypted flag file. Now we get a list of all the possible keys. 
 
