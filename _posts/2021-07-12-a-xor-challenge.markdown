@@ -8,7 +8,7 @@ permalink: /a-xor-challenge.html
 
 ## Description
 Haha! I encrypted a message containing the flag with a 12-byte XOR key. Let's see if you can crack it. Btw, the phrase "Your flag is" shows up in the plaintext, good luck!
-Note: The plaintext containing the flag contains some non-printable ascii characters to throw off auto-xor solvers :wink:
+Note: The plaintext containing the flag contains some non-printable ascii characters to throw off auto-xor solvers 😉
 Flag format: FLAG{some_string}
 
 
@@ -50,12 +50,14 @@ while x < len(ciphertext) - 12:
 
     except Exception as e:
         break
-    res = res[-(x % 12):] + res[:-(x % 12)]
+    res = res[-(x % 12):] + res[:-(x % 12)] #padding
     keyList.append(res)
     x = x + 1
 
     
 ```
+*The padding function is used to account for the previous x letters of the ciphertext, and wraps-around the key according to the position of the character in each block of 12 characters.*
+
 
 Then, we XOR the list of possible keys with the ciphertext. We can then use the power of Regex to single out the plaintext containing the flag.
 
