@@ -5,7 +5,6 @@ author: Arul Kumaran
 permalink: /a-xor-challenge.html
 ---
 
-A pretty interesting challenge, so I thought I'd do a writeup about it for future reference.
 
 ## Description
 Haha! I encrypted a message containing the flag with a 12-byte XOR key. Let's see if you can crack it. Btw, the phrase "Your flag is" shows up in the plaintext, good luck!
