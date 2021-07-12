@@ -5,6 +5,8 @@ author: Arul Kumaran
 permalink: /a-xor-challenge.html
 ---
 
+A pretty interesting challenge, so I thought I'd do a writeup about it for future reference.
+
 ## Description
 Haha! I encrypted a message containing the flag with a 12-byte XOR key. Let's see if you can crack it. Btw, the phrase "Your flag is" shows up in the plaintext, good luck!
 Note: The plaintext containing the flag contains some non-printable ascii characters to throw off auto-xor solvers :wink:
@@ -76,8 +78,7 @@ And then we get the flag, FLAG{gg_y0u_kn0w_h0w_t0_und0_x0r_w17h_k3y_l3ngth_4nd_p
 
 
 ## Appendix
-This is the challenge author's code. I didn't know that pwntools has such an amazing XOR function lol, you don't even need to convert the ciphertext to bytes.
-
+This is the challenge author's code. 
 ```python
 #python 2 please
 import string
