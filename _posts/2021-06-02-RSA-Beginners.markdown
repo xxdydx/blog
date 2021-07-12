@@ -89,7 +89,7 @@ c = 2241287056775250403738434452363598789742608867060801677763572233298639695715
 
 As you can see, the public exponent value is really big, almost as big or bigger than the modulus.
 
-Hence, we can exploit the [Wiener attack](https://en.wikipedia.org/wiki/Wiener%27s_attack). The math behind it  is really complicated (even I don't understand it LOL), but fortunately there's a Wiener attack function available on Python, so if we use that, we can easily find the d value, hence enabling us to decrypt the ciphertext. Let's get to work!
+Hence, we can exploit the [Wiener attack](https://en.wikipedia.org/wiki/Wiener%27s_attack). The math behind it is pretty complicated (tbh we don't really need to understand it for the purpose of CTF i think), but fortunately there's a Wiener attack function available on Python, so if we use that, we can easily find the d value, hence enabling us to decrypt the ciphertext. Let's get to work!
 
 Here's my script.
 ```python
