@@ -1,4 +1,4 @@
----
+
 ---
 layout: post
 title: A XOR Challenge
@@ -45,24 +45,15 @@ data = ciphertext
 while x < len(ciphertext) - 12:
     res = ""
     try:
-        res = res + chr(data[x] ^ key[0])
-        res = res + chr(data[x+1] ^ key[1])
-        res = res + chr(data[x+2] ^ key[2])
-        res = res + chr(data[x+3] ^ key[3])
-        res = res + chr(data[x+4] ^ key[4])
-        res = res + chr(data[x+5] ^ key[5])
-        res = res + chr(data[x+6] ^ key[6])
-        res = res + chr(data[x+7] ^ key[7])
-        res = res + chr(data[x+8] ^ key[8])
-        res = res + chr(data[x+9] ^ key[9])
-        res = res + chr(data[x+10] ^ key[10])
-        res = res + chr(data[x+11] ^ key[11])
-        res = res[-(x % 12):] + res[:-(x % 12)] #to account for first x letters in the ciphertext
+        for i in range(len(key)):
+            res += chr(data[x + i] ^ key[i % len(key)])
 
     except Exception as e:
         break
+    res = res[-(x % 12):] + res[:-(x % 12)]
     keyList.append(res)
     x = x + 1
+
     
 ```
 
@@ -75,60 +66,92 @@ for k in keyList:
     #k = bytes(k, 'ascii')
     counter = 0
     res = ''
-    while counter < len(data) - 12:
-        res = res + chr(data[counter] ^ ord(k[0]))
-        res = res + chr(data[counter+1] ^ ord(k[1]))
-        res = res + chr(data[counter+2] ^ ord(k[2]))
-        res = res + chr(data[counter+3] ^ ord(k[3]))
-        res = res + chr(data[counter+4] ^ ord(k[4]))
-        res = res + chr(data[counter+5] ^ ord(k[5]))
-        res = res + chr(data[counter+6] ^ ord(k[6]))
-        res = res + chr(data[counter+7] ^ ord(k[7]))
-        res = res + chr(data[counter+8] ^ ord(k[8]))
-        res = res + chr(data[counter+9] ^ ord(k[9]))
-        res = res + chr(data[counter+10] ^ ord(k[10]))
-        res = res + chr(data[counter+11] ^ ord(k[11]))
-        counter = counter + 12
+    for j in range (len(ciphertext)):
+        res += chr(data[j] ^ ord(k[j % len (k)]))
     if findall('FLAG{.+}', res):
         print(findall('FLAG{.+}', res))
         break
 ```
 
-And then we get the flag, ```FLAG{gg_y0u_kn0w_h0w_t0_und0_x0r_w17h_k3y_l3ngth_4nd_par7ial_pl41n73x7_kn0wl3d63}```.
+And then we get the flag, FLAG{gg_y0u_kn0w_h0w_t0_und0_x0r_w17h_k3y_l3ngth_4nd_par7ial_pl41n73x7_kn0wl3d63}.
 
 
 ## Appendix
 This is the challenge author's code. I didn't know that pwntools has such an amazing XOR function lol, you don't even need to convert the ciphertext to bytes.
 
 ```python
-from binascii import unhexlify
-from pwn import *
-import regex as re
+#python 2 please
+import string
+import binascii
 
-
-def pad_key(key, keylength):
-    perm = i % keylength
-    key_fixed = key[-perm:] + key[:-perm]
+def xor(msg, key):
+    o = ''
+    for i in range(len(msg)):
+        o += chr(ord(msg[i]) ^ ord(key[i % len(key)]))
+    return o
+  
+def pad_key(key,keylength):
+    key_fixed = ""
+    list_key=[]
+    list_key[:0]=key
+    for j in range(i%keylength):
+        tmp = list_key[-1]
+        list_key.pop(-1)
+        list_key.insert(0,tmp)
+    key_fixed = ''.join(str(i) for i in list_key)
     return key_fixed
 
 
-msgenc = open('seancipher', 'r').read()
-msg = unhexlify(msgenc.strip())
+msg = binascii.unhexlify("")
 
-part_of_msg = b"Your flag is"
-partial_pt = b"FLAG{"
+part_of_msg = "Your flag is"
+partial_pt = "FLAG{"
 keylength = 12
 
-with log.progress("enumerating") as pro:
-    for i in range(len(msg)):
-        candidate = xor(msg[i:i+len(part_of_msg)], part_of_msg)
-        candidate_padded = pad_key(candidate, keylength)
-        possible_pt = xor(msg, candidate_padded)
-        pro.status(f"{i}")
-        if (partial_pt in possible_pt):
-            print(re.findall(b"FLAG{.+}", possible_pt).pop().decode())
-            break
+
+for i in range(len(msg)):
+    print i,
+    candidate = xor(msg[i:i+len(part_of_msg)], part_of_msg)
+    candidate_padded = pad_key(candidate,keylength)
+    possible_pt = xor(msg,candidate_padded)
+    if (partial_pt in possible_pt):
+        print(possible_pt)
             
 ```
 
+My full code:
+```python
+from binascii import unhexlify
+from regex import findall
+with open('cipher', "rb") as f:
+    ciphertext = unhexlify(f.read().strip())
+
+key = "Your flag is"
+key = bytes(key, 'ascii')
+keyList = []
+x = 0
+data = ciphertext
+while x < len(ciphertext) - 12:
+    res = ""
+    try:
+        for i in range(len(key)):
+            res += chr(data[x + i] ^ key[i % len(key)])
+
+    except Exception as e:
+        break
+    res = res[-(x % 12):] + res[:-(x % 12)]
+    keyList.append(res)
+    x = x + 1
+
+data = ciphertext
+for k in keyList:
+    #k = bytes(k, 'ascii')
+    counter = 0
+    res = ''
+    for j in range (len(ciphertext)):
+        res += chr(data[j] ^ ord(k[j % len (k)]))
+    if findall('FLAG{.+}', res):
+        print(findall('FLAG{.+}', res))
+        break
+```
 
