@@ -1,5 +1,4 @@
 
----
 layout: post
 title: A XOR Challenge
 author: Arul Kumaran
