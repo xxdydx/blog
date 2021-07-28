@@ -5,11 +5,6 @@ author: Arul Kumaran
 permalink: /standcon-2021.html
 ---
 
-Placed 12th in this CTF, although me and my teammates weren't playing very seriously.
-
-
-I forgot to backup the challenges before they were taken down, so idk the descriptions and titles of the challenges. Maybe I'll update them later when I read writeups from other people.
-
 # Space Papaya
 
 
@@ -417,3 +412,4 @@ p.interactive()
 ```
 
 Here's the flag: ```STC{w0w_wHa7_An_UneXPec7eD_7Wi57}```.
+
