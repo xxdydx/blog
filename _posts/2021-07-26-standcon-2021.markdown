@@ -2,7 +2,7 @@
 layout: post
 title: STANDCON CTF 2021
 author: Arul Kumaran
-permalink: /standco-2021.html
+permalink: /standcon-2021.html
 ---
 
 Placed 12th in this CTF, although me and my teammates weren't playing very seriously.
