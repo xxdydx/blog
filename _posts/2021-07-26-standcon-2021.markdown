@@ -5,14 +5,14 @@ author: Arul Kumaran
 permalink: /standcon-2021.html
 ---
 
-# Space Papaya
+## Space Papaya
 
 
-## Description
+### Description
 I’ve been promised some space payayas but Thanos has encrypted it Could you help me get to my delicious goodness??
 
 
-## Solution
+### Solution
 
 
 Here's the source code provided for this challenge:
@@ -41,7 +41,7 @@ print('c: {}'.format(c))
 As we can see from the source code, \\(p\\) and \\(q\\) are consecutive primes, as the function ```next_prime``` was  used on \\(p\\) to find \\(q\\). Since the values of \\(p\\) and \\(q\\) are pretty close together, we can thus use the Fermat's Theorem to factorise out \\(p\\) and \\(q\\).
 
 
-## The Math
+**The Math**
 
 The fermat algorithm uses the fact that:
 
@@ -98,16 +98,16 @@ And here's the flag: ```STC{where_did_my_space_papayas_go}```.
 
 
 
-# Rocket Ship Academy
+## Rocket Ship Academy
 
-## Description
+### Description
 > Oracle: a person or thing regarded as an infallible authority on something.
 
 
 Do we have one of those here?
 
 
-## Solution
+### Solution
 
 This is a chosen ciphertext attack against RSA. Hence, we can send a certain ciphertext to decipher the message.
 
@@ -119,13 +119,13 @@ as a ciphertext to get the flag.
 
 
 
-## How the Math Works
+**How the Math Works**
 Basically if you send \\(c'\\) as a ciphertext, this is what happens.
 
 $$ \begin{aligned}(c * 2^e)^d \mod n &= c^d *2^{ed} \mod n \\ &=(c^d \mod n)(2^{ed} \mod n) \mod n \\ &= m *(2^{1+kϕ(n)}) \mod n \\ &= m* 2* (2^{1+kϕ(n)}) \mod n \\ &= 2m * 1 \mod n \end{aligned} $$
 
 
-## The Script
+**The Script**
 ```python
 from pwn import *
 from Crypto.Util.number import long_to_bytes
@@ -149,9 +149,9 @@ log.info(f"flag is {long_to_bytes(decrypt//2).decode().strip()}")
 And the flag is, ```STC{ch0s3n_c1ph3rt3xt_d7b593cd54baba9e2ffa49215d33e4c657cf230a}```.
 
 
-# Mind Reader
+## Mind Reader
 
-## Description
+### Description
 So you think you are the best mind reader in the entire galaxy? We shall see about that…
 
 ```python
@@ -345,7 +345,7 @@ if __name__ == "__main__":
     
 ```
 
-## Solution
+### Solution
 
 (I didn't do this challenge, my teammate did.)
 
