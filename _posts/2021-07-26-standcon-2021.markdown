@@ -121,6 +121,8 @@ as a ciphertext to get the flag.
 
 
 **How the Math Works**
+
+
 Basically if you send \\(c'\\) as a ciphertext, this is what happens.
 
 $$ \begin{aligned}(c * 2^e)^d \mod n &= c^d *2^{ed} \mod n \\ &=(c^d \mod n)(2^{ed} \mod n) \mod n \\ &= m *(2^{1+kϕ(n)}) \mod n \\ &= m* 2* (2^{1+kϕ(n)}) \mod n \\ &= 2m * 1 \mod n \end{aligned} $$
