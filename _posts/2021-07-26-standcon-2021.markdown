@@ -43,6 +43,7 @@ As we can see from the source code, \\(p\\) and \\(q\\) are consecutive primes, 
 
 **The Math**
 
+
 The fermat algorithm uses the fact that:
 
 
